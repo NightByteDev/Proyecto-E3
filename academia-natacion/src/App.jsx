@@ -3,10 +3,10 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Reservaciones from './pages/Reservaciones';
 import Ventas from './pages/Ventas';
-import MiCuenta from './pages/MiCuenta';
 import Tienda from './pages/Tienda';
-import Admin from './pages/Admin';
-import ProtectedRoute from './components/ProtectedRoute'; // Asegúrate de tener este componente
+import MiCuenta from './pages/MiCuenta';
+import Admin from './pages/Admin'; // <--- ¡Asegúrate de importar la nueva vista!
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
@@ -15,13 +15,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         
-        {/* Panel del Atleta */}
+        {/* Rutas del Atleta */}
         <Route path="/reservaciones" element={<ProtectedRoute><Reservaciones /></ProtectedRoute>} />
         <Route path="/ventas" element={<ProtectedRoute><Ventas /></ProtectedRoute>} />
         <Route path="/tienda" element={<ProtectedRoute><Tienda /></ProtectedRoute>} />
         <Route path="/micuenta" element={<ProtectedRoute><MiCuenta /></ProtectedRoute>} />
         
-        {/* Panel del Administrador */}
+        {/* Ruta del Administrador en Local */}
         <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
       </Routes>
     </Router>
