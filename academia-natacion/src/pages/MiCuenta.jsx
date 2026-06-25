@@ -12,7 +12,7 @@ export default function MiCuenta() {
   const email = localStorage.getItem('email');
 
   const cargarHistorial = () => {
-    fetch(`http://localhost:3000/api/movimientos/${email}`)
+    fetch(`https://aquafit-backend.onrender.com/api/movimientos/${email}`)
       .then(res => res.json())
       .then(data => setHistorial(data));
   };
@@ -22,7 +22,7 @@ export default function MiCuenta() {
   const handleModificarNombre = async () => {
     const nuevoNombre = prompt("Ingresa tu nuevo nombre completo:", usuario);
     if (nuevoNombre && nuevoNombre.trim() !== "") {
-      const res = await fetch(`http://localhost:3000/api/usuarios/${email}`, {
+      const res = await fetch(`https://aquafit-backend.onrender.com/api/usuarios/${email}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nuevoNombre })
@@ -36,7 +36,7 @@ export default function MiCuenta() {
   };
 
   const ejecutarAnulacion = async () => {
-    const res = await fetch(`http://localhost:3000/api/membresia/${email}`, { method: 'DELETE' });
+    const res = await fetch(`https://aquafit-backend.onrender.com/api/membresia/${email}`, { method: 'DELETE' });
     if (res.ok) {
       setModalConfirmar(false);
       setNotificacion({ abierto: true, mensaje: 'Tu membresía ha sido anulada. Tu cuenta regresa a Modo Visita.' });

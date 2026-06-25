@@ -25,7 +25,7 @@ export default function Reservaciones() {
   ];
 
   const verificarMembresia = () => {
-    fetch(`http://localhost:3000/api/movimientos/${email}`)
+    fetch(`https://aquafit-backend.onrender.com/api/movimientos/${email}`)
       .then(res => res.json())
       .then(data => setHistorial(data))
       .catch(err => console.error(err));
@@ -38,7 +38,7 @@ export default function Reservaciones() {
   const ejecutarReserva = async () => {
     const costo = tieneMembresia ? 0 : 150;
     try {
-      const res = await fetch('http://localhost:3000/api/movimientos', {
+      const res = await fetch('https://aquafit-backend.onrender.com/api/movimientos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

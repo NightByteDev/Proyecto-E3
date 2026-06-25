@@ -8,7 +8,7 @@ export default function Admin() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/admin/ventas')
+    fetch('https://aquafit-backend.onrender.com/api/admin/ventas')
       .then(res => res.json())
       .then(data => setDatos(data));
   }, []);

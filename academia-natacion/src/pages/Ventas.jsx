@@ -20,7 +20,7 @@ export default function Ventas() {
   // Ejecuta la compra real cuando le dan a "Confirmar" en el modal
   const confirmarCompra = async () => {
     try {
-      const res = await fetch('http://localhost:3000/api/movimientos', {
+      const res = await fetch('https://aquafit-backend.onrender.com/api/movimientos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
