@@ -9,7 +9,7 @@ export default function Admin() {
   const navigate = useNavigate();
 
   const cargarDatosAdmin = () => {
-    fetch('http://localhost:3000/api/admin/ventas')
+    fetch('https://aquafit-backend.onrender.com/api/admin/ventas')
       .then(res => res.json())
       .then(data => setDatos(data))
       .catch(err => console.error("Error al cargar panel de admin:", err));
