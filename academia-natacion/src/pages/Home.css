@@ -1,0 +1,281 @@
+/* =========================================
+   RESET GLOBAL Y VARIABLES
+   ========================================= */
+html, body, #root { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+* { box-sizing: border-box; }
+
+:root {
+  --azul-marino: #001f54;
+  --azul-oscuro: #034078;
+  --azul-claro: #00a8e8;
+  --blanco: #ffffff;
+  --amarillo-acento: #ffc300;
+  /* Nuevos fondos acuáticos para reemplazar el blanco aburrido */
+  --fondo-agua-claro: #e0f4f9; 
+  --fondo-agua-medio: #ccecf5;
+}
+
+.home-wrapper {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--azul-marino);
+  color: var(--azul-marino); /* El texto oscuro contrasta bien en el fondo claro */
+}
+
+/* Barra y Header */
+.top-bar { background-color: #001233; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--blanco); }
+.social-links, .contact-info { display: flex; gap: 15px; }
+.social-links a { color: var(--blanco); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+.social-links a:hover { color: var(--azul-claro); }
+
+.main-header {
+  display: flex; justify-content: space-between; align-items: center; padding: 20px 5%;
+  background: var(--azul-marino); border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky; top: 0; z-index: 100;
+}
+.brand-logo { font-size: 2.2rem; font-weight: 900; color: var(--blanco); letter-spacing: 1px; }
+.auth-buttons { display: flex; gap: 15px; }
+
+.btn-login { background-color: var(--azul-claro); color: var(--azul-marino); padding: 10px 24px; border-radius: 6px; font-weight: 800; text-decoration: none; transition: all 0.3s ease; }
+.btn-login:hover { background-color: var(--blanco); transform: translateY(-2px); }
+.btn-register { background-color: var(--azul-oscuro); color: var(--azul-claro); border: 2px solid var(--azul-claro); padding: 8px 24px; border-radius: 6px; font-weight: 800; text-decoration: none; transition: all 0.3s ease; }
+.btn-register:hover { background-color: var(--azul-claro); color: var(--azul-marino); }
+
+/* =========================================
+   HERO SECTION CON VIDEO Y OLAS
+   ========================================= */
+.hero-section {
+  position: relative;
+  padding: 120px 5% 200px 5%;
+  overflow: hidden; 
+  color: var(--blanco);
+}
+
+.video-background {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to right, rgba(0, 31, 84, 0.95) 0%, rgba(3, 64, 120, 0.5) 100%);
+  z-index: 2;
+}
+
+.hero-text-container { max-w: 650px; position: relative; z-index: 10; }
+.hero-title { font-size: 5rem; font-weight: 900; line-height: 1; margin-bottom: 20px; text-transform: uppercase; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+.hero-title span { color: var(--amarillo-acento); }
+
+/* Olas mejoradas y adaptadas al nuevo color de fondo */
+.ocean-waves { position: absolute; bottom: -5px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 10; }
+.ocean-waves svg { display: block; width: 200%; height: 150px; animation: moveWaves 15s linear infinite; transform-origin: bottom; }
+@keyframes moveWaves { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* =========================================
+   SECCIONES GENERALES
+   ========================================= */
+.info-section { background-color: var(--fondo-agua-claro); padding: 80px 5%; overflow: hidden; }
+.info-section.gray-bg { background-color: var(--fondo-agua-medio); }
+.info-section.dark-bg { background-color: var(--azul-marino); color: var(--blanco); }
+
+.section-title { font-size: 3rem; font-weight: 900; margin-bottom: 40px; text-align: center; color: inherit; }
+.section-title.blue-text { color: var(--azul-oscuro); }
+
+.cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.info-card { background: var(--blanco); color: var(--azul-marino); padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(3, 64, 120, 0.1); border-bottom: 5px solid var(--azul-claro); transition: transform 0.4s; text-align: center; }
+.info-card:hover { transform: translateY(-10px); }
+
+/* =========================================
+   CARRUSEL DE IMÁGENES
+   ========================================= */
+.carousel-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 31, 84, 0.2);
+  aspect-ratio: 16/9; /* Mantiene proporción horizontal */
+  background-color: var(--azul-marino);
+}
+
+.carousel-slide { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.5s ease-in-out; }
+
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0, 31, 84, 0.7); color: var(--blanco);
+  border: none; font-size: 2rem; padding: 15px 20px;
+  cursor: pointer; transition: all 0.3s; z-index: 10;
+}
+.carousel-btn:hover { background: var(--amarillo-acento); color: var(--azul-marino); }
+.carousel-btn.left { left: 0; border-radius: 0 10px 10px 0; }
+.carousel-btn.right { right: 0; border-radius: 10px 0 0 10px; }
+
+.carousel-indicators {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 10px; z-index: 10;
+}
+.indicator {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5); cursor: pointer; transition: all 0.3s;
+}
+.indicator.active { background: var(--amarillo-acento); transform: scale(1.3); }
+
+/* Reseñas y Lista */
+.reviews-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.review-card { background-color: var(--blanco); padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: left; border-left: 5px solid var(--amarillo-acento); }
+.review-stars { color: var(--amarillo-acento); font-size: 1.2rem; margin-bottom: 10px; }
+.review-text { font-style: italic; color: #555; margin-bottom: 15px; line-height: 1.6; }
+.review-author { font-weight: bold; color: var(--azul-marino); }
+
+.why-us-list { list-style: none; padding: 0; max-w: 800px; margin: 0 auto; font-size: 1.2rem; line-height: 2; }
+.why-us-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; }
+
+/* =========================================
+   ANIMACIONES DE SCROLL (Bucle bidireccional)
+   ========================================= */
+.hidden-scroll { opacity: 0; transform: translateY(80px); transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.hidden-left { opacity: 0; transform: translateX(-100px); transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.hidden-right { opacity: 0; transform: translateX(100px); transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.hidden-scale { opacity: 0; transform: scale(0.8); transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+/* La clase show-scroll se quita y se pone al navegar */
+.show-scroll { opacity: 1; transform: translateX(0) translateY(0) scale(1); }
+
+/* Footer */
+.site-footer { background-color: #000c24; color: #a0aec0; padding: 60px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+.site-footer h3 { color: var(--blanco); margin-bottom: 20px; }
+.site-footer ul { list-style: none; padding: 0; }
+.site-footer ul li { margin-bottom: 10px; }
+.site-footer ul li a { color: #a0aec0; text-decoration: none; transition: color 0.3s; }
+.site-footer ul li a:hover { color: var(--azul-claro); }
+
+/* =========================================
+   ÍCONOS MATERIAL SYMBOLS
+   ========================================= */
+.material-symbols-outlined {
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   EFECTO DE BURBUJAS (Hero Section)
+   ========================================= */
+.bubbles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none; /* Para que no bloqueen los clics del usuario */
+  z-index: 3;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: rise 10s infinite ease-in;
+}
+
+@keyframes rise {
+  0% { bottom: -100px; transform: translateX(0); opacity: 1; }
+  50% { transform: translateX(50px); }
+  100% { bottom: 1080px; transform: translateX(-100px); opacity: 0; }
+}
+
+/* Tamaños y velocidades aleatorias para cada burbuja */
+.bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 8s; }
+.bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 5s; animation-delay: 1s; }
+.bubble:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 7s; animation-delay: 2s; }
+.bubble:nth-child(4) { width: 30px; height: 30px; left: 50%; animation-duration: 11s; }
+.bubble:nth-child(5) { width: 60px; height: 60px; left: 65%; animation-duration: 6s; animation-delay: 3s; }
+.bubble:nth-child(6) { width: 25px; height: 25px; left: 80%; animation-duration: 9s; animation-delay: 1s; }
+.bubble:nth-child(7) { width: 45px; height: 45px; left: 90%; animation-duration: 10s; animation-delay: 2s; }
+
+/* =========================================
+   BOTÓN DESCUBRE MÁS (Hero Section)
+   ========================================= */
+.scroll-down-wrapper {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+  color: var(--blanco);
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.scroll-down-wrapper:hover {
+  opacity: 1;
+}
+
+.scroll-down-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.scroll-down-btn {
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-15px); }
+  60% { transform: translateY(-7px); }
+}
+
+/* =========================================
+   MEJORA: POR QUÉ ELEGIRNOS (Tarjetas Oscuras)
+   ========================================= */
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-w: 1100px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.why-us-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 35px 20px;
+  border-radius: 15px;
+  transition: transform 0.3s, background 0.3s;
+  text-align: center;
+}
+
+.why-us-item:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--azul-claro);
+}
+
+.why-us-icon {
+  font-size: 3rem;
+  color: var(--azul-claro);
+  margin-bottom: 15px;
+}
+
+.why-us-item h3 {
+  color: var(--blanco);
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.why-us-item p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
