@@ -99,7 +99,7 @@ export default function Reservaciones() {
 
       <aside className="panel-sidebar">
         <div>
-          <h2 className="sidebar-brand">AquaFit 🌊</h2>
+          <h2 className="sidebar-brand">Escuela de Natación</h2>
           <p className="sidebar-user">Atleta: <span>{usuario}</span></p>
           <nav className="sidebar-nav">
             <NavLink to="/reservaciones" className="nav-item active"><FaCalendarAlt /> Reservaciones</NavLink>

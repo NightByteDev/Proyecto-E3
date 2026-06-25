@@ -62,7 +62,7 @@ export default function Tienda() {
 
       <aside className="panel-sidebar">
         <div>
-          <h2 className="sidebar-brand">AquaFit 🌊</h2>
+          <h2 className="sidebar-brand">Escuela de Natación</h2>
           <p className="sidebar-user">Atleta: <span>{usuario}</span></p>
           <nav className="sidebar-nav">
             <NavLink to="/reservaciones" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}><FaCalendarAlt /> Reservaciones</NavLink>

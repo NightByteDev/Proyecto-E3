@@ -38,7 +38,7 @@ export default function Admin() {
       {/* Sidebar del Administrador */}
       <aside className="panel-sidebar" style={{ backgroundColor: '#0f172a' }}>
         <div>
-          <h2 className="sidebar-brand" style={{ color: '#38bdf8' }}>AquaFit Admin ⚙️</h2>
+          <h2 className="sidebar-brand" style={{ color: '#38bdf8' }}>Admin ⚙️</h2>
           <p className="sidebar-user" style={{ color: '#94a3b8' }}>Estatus: <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>Director General</span></p>
           
           <nav className="sidebar-nav" style={{ marginTop: '30px' }}>
